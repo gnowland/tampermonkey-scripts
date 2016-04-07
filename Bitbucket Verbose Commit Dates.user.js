@@ -22,9 +22,15 @@ $(".commit-list th.date").click(function(){
 
 
 function verboseCommit(){
+
     var $commitTime = $(".commit-list .date time");
-    
     $commitTime.each(function() {
         $(this).text($(this).attr("title"));
+    });
+    
+    var $authorImage = $(".aui-avatar");
+    $authorImage.each(function() {
+        $(this).unwrap();
+        $(this).hide();
     });
 }
