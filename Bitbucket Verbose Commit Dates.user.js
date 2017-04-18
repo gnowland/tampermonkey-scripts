@@ -9,28 +9,30 @@
 // @require      http://code.jquery.com/jquery-latest.js
 // ==/UserScript==
 /* jshint -W097 */
-'use strict';
+(function( $ ) {
+    'use strict';
 
-$(document).ready(function() {
-    $(".commit-list .date > div").css("width","auto");
-    $(".commit-list th.date").css("cursor","pointer");
-});
-
-$(".commit-list th.date").click(function(){
-    verboseCommit();
-});
-
-
-function verboseCommit(){
-
-    var $commitTime = $(".commit-list .date time");
-    $commitTime.each(function() {
-        $(this).text($(this).attr("title"));
+    $(document).ready(function() {
+        $(".commit-list .date > div").css("width","auto");
+        $(".commit-list th.date").css("cursor","pointer");
     });
-    
-    var $authorImage = $(".aui-avatar");
-    $authorImage.each(function() {
-        $(this).unwrap();
-        $(this).hide();
+
+    $(".commit-list th.date").click(function(){
+        verboseCommit();
     });
-}
+
+
+    function verboseCommit(){
+
+        var $commitTime = $(".commit-list .date time");
+        $commitTime.each(function() {
+            $(this).text($(this).attr("title"));
+        });
+
+        var $authorImage = $(".aui-avatar");
+        $authorImage.each(function() {
+            $(this).unwrap();
+            $(this).hide();
+        });
+    }
+})(jQuery);
