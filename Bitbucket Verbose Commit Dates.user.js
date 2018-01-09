@@ -18,7 +18,9 @@
     function showTime(){
         var $commitTime = $(".commit-list .date time");
         $commitTime.each(function() {
-            $(this).text($(this).attr("title"));
+            var time = $(this).attr("title").substr(15, 5);
+            // $(this).text($(this).attr("title"));
+            $(this).closest('.date').next('.status').html(time);
         });
         var itsShowTime = true;
     }
@@ -54,10 +56,10 @@
         $(".app-header--secondary button").css({'width': '100%', 'margin': '3px'});
 
         // Fire click event
-        $("#showtime").click(function(){ showTime(); });
+        $("#showtime").click(function(){ showTime(); $(".commit-list thead .status").html("Time"); });
         $("#hideavatar").click(function(){ hideAvatar(); });
         $("#unlinkcommit").click(function(){ unlinkCommit(); });
-        $("#doall").click(function(){ showTime(); hideAvatar(); unlinkCommit(); });
+        $("#doall").click(function(){ showTime(); $(".commit-list thead .status").html("Time"); hideAvatar(); unlinkCommit(); });
     });
 
     // Handle change
