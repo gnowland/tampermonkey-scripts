@@ -42,12 +42,10 @@
         // Fire click event
         $("#showtime").click(function(){ showTime(); });
         $("#hideavatar").click(function(){ hideAvatar(); });
+    });
 
-        // Handle change
-        $( ".commit-list .date time" ).change(function() {
-            if (itsShowTime === true) {
-                showTime();
-            }
-        });
+    // Handle change
+    $( ".commit-list .date time" ).change(function() {
+        if (itsShowTime === true) { showTime(); }
     });
 })(jQuery);
