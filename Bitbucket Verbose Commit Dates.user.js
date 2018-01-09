@@ -14,21 +14,20 @@
 
     $(document).ready(function() {
         $(".commit-list .date > div").css("width","auto");
-        $(".commit-list th.date").css("cursor","pointer");
+        $(".app-header--secondary").append('<button id="showtime" onclick="showTime();">Show Time</button>');
+        $(".app-header--secondary").append('<button id="showtime" onclick="hideAvatar();">Hide Avatar</button>');
     });
 
-    $(".commit-list th.date").click(function(){
-        verboseCommit();
-    });
-
-
-    function verboseCommit(){
-
+    // Show commit time
+    function showTime(){
         var $commitTime = $(".commit-list .date time");
         $commitTime.each(function() {
             $(this).text($(this).attr("title"));
         });
+    }
 
+    // Hide bitbucket avatar
+    function hideAvatar(){
         var $authorImage = $(".aui-avatar");
         $authorImage.each(function() {
             $(this).unwrap();
