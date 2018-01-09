@@ -32,18 +32,32 @@
         });
     }
 
+    // Unlink commit
+    function unlinkCommit(){
+        var $commitHash = $(".commit-list a.hash");
+        $commitHash.each(function() {
+            var hash = this.text;
+            $(this).parent().html(hash);
+        });
+    }
+
     // Page load
     $(document).ready(function() {
         // Add boxes & styles
         var buttonLocation = $(".app-header--secondary");
         $(".commit-list .date > div").css("width","auto");
-        buttonLocation.css({'position': 'fixed', 'right': '10px', 'top': '10px', 'z-index': '1000', 'flex-direction': 'column'});
+        buttonLocation.css({'position': 'fixed', 'right': '10px', 'top': '10px', 'z-index': '1000', 'flex-direction': 'column', 'max-width': '150px'});
         buttonLocation.append('<button id="showtime">Show Time</button>');
         buttonLocation.append('<button id="hideavatar">Hide Avatar</button>');
+        buttonLocation.append('<button id="unlinkcommit">Unlink Hash</button>');
+        buttonLocation.append('<button id="doall">DO ALL</button>');
+        $(".app-header--secondary button").css({'width': '100%', 'margin': '3px'});
 
         // Fire click event
         $("#showtime").click(function(){ showTime(); });
         $("#hideavatar").click(function(){ hideAvatar(); });
+        $("#unlinkcommit").click(function(){ unlinkCommit(); });
+        $("#doall").click(function(){ showTime(); hideAvatar(); unlinkCommit(); });
     });
 
     // Handle change
