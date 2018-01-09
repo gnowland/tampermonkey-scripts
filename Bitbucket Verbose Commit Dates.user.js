@@ -18,7 +18,7 @@
     function showTime(){
         var $commitTime = $(".commit-list .date time");
         $commitTime.each(function() {
-            var time = $(this).attr("title").substr(15, 5);
+            var time = $(this).attr("title").substr(-5, 5);
             // $(this).text($(this).attr("title"));
             $(this).closest('.date').next('.status').html(time);
         });
