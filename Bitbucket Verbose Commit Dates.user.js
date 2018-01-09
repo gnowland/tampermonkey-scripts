@@ -12,12 +12,6 @@
 (function( $ ) {
     'use strict';
 
-    $(document).ready(function() {
-        $(".commit-list .date > div").css("width","auto");
-        $(".app-header--secondary").append('<button id="showtime" onclick="showTime();">Show Time</button>');
-        $(".app-header--secondary").append('<button id="showtime" onclick="hideAvatar();">Hide Avatar</button>');
-    });
-
     // Show commit time
     function showTime(){
         var $commitTime = $(".commit-list .date time");
@@ -34,4 +28,16 @@
             $(this).hide();
         });
     }
+
+    // Page load
+    $(document).ready(function() {
+        // Setup buttons
+        $(".commit-list .date > div").css("width","auto");
+        $(".app-header--secondary").append('<button id="showtime">Show Time</button>');
+        $(".app-header--secondary").append('<button id="hideavatar">Hide Avatar</button>');
+
+        // Handle click
+        $("#showtime").click(function(){ showTime(); });
+        $("#hideavatar").click(function(){ hideAvatar(); });
+    });
 })(jQuery);
