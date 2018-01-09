@@ -35,9 +35,11 @@
     // Page load
     $(document).ready(function() {
         // Add boxes & styles
+        var buttonLocation = $(".app-header--secondary");
         $(".commit-list .date > div").css("width","auto");
-        $(".app-header--secondary").append('<button id="showtime">Show Time</button>');
-        $(".app-header--secondary").append('<button id="hideavatar">Hide Avatar</button>');
+        buttonLocation.css({'position': 'fixed', 'right': '10px', 'top': '10px', 'z-index': '1000', 'flex-direction': 'column'});
+        buttonLocation.append('<button id="showtime">Show Time</button>');
+        buttonLocation.append('<button id="hideavatar">Hide Avatar</button>');
 
         // Fire click event
         $("#showtime").click(function(){ showTime(); });
